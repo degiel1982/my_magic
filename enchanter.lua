@@ -110,11 +110,62 @@ minetest.register_node("mymagic:enchantment_table", {
       local orbc = inv:get_stack("orb3", 1)
       local orbd = inv:get_stack("orb4", 1)
 
-      local enchantment_map = {
-        -- Example mappings (update with actual items)
-        ["default:pick_wood"] = {next = "mymagic_tools:pick_enchanted_wood_orange", color = "orange"},
-        -- Add other mappings
-      }
+local enchantment_map = {
+    -- Picks
+    ["default:pick_wood"] = {next = "mymagic_tools:pick_enchanted_wood_orange", color = "orange"},
+    ["mymagic_tools:pick_enchanted_wood_orange"] = {next = "mymagic_tools:pick_enchanted_wood_green", color = "green"},
+    ["mymagic_tools:pick_enchanted_wood_green"] = {next = "mymagic_tools:pick_enchanted_wood_blue", color = "blue"},
+    ["mymagic_tools:pick_enchanted_wood_blue"] = {next = "mymagic_tools:pick_enchanted_wood_red", color = "red"},
+
+    -- Axes
+    ["default:axe_wood"] = {next = "mymagic_tools:axe_enchanted_wood_orange", color = "orange"},
+    ["mymagic_tools:axe_enchanted_wood_orange"] = {next = "mymagic_tools:axe_enchanted_wood_green", color = "green"},
+    ["mymagic_tools:axe_enchanted_wood_green"] = {next = "mymagic_tools:axe_enchanted_wood_blue", color = "blue"},
+    ["mymagic_tools:axe_enchanted_wood_blue"] = {next = "mymagic_tools:axe_enchanted_wood_red", color = "red"},
+
+    -- Shovels
+    ["default:shovel_wood"] = {next = "mymagic_tools:shovel_enchanted_wood_orange", color = "orange"},
+    ["mymagic_tools:shovel_enchanted_wood_orange"] = {next = "mymagic_tools:shovel_enchanted_wood_green", color = "green"},
+    ["mymagic_tools:shovel_enchanted_wood_green"] = {next = "mymagic_tools:shovel_enchanted_wood_blue", color = "blue"},
+    ["mymagic_tools:shovel_enchanted_wood_blue"] = {next = "mymagic_tools:shovel_enchanted_wood_red", color = "red"},
+
+    -- Swords
+    ["default:sword_wood"] = {next = "mymagic_tools:sword_enchanted_wood_orange", color = "orange"},
+    ["mymagic_tools:sword_enchanted_wood_orange"] = {next = "mymagic_tools:sword_enchanted_wood_green", color = "green"},
+    ["mymagic_tools:sword_enchanted_wood_green"] = {next = "mymagic_tools:sword_enchanted_wood_blue", color = "blue"},
+    ["mymagic_tools:sword_enchanted_wood_blue"] = {next = "mymagic_tools:sword_enchanted_wood_red", color = "red"},
+
+    -- Knives
+    ["mymagic_tools:knife_wood"] = {next = "mymagic_tools:knife_enchanted_wood_orange", color = "orange"},
+    ["mymagic_tools:knife_enchanted_wood_orange"] = {next = "mymagic_tools:knife_enchanted_wood_green", color = "green"},
+    ["mymagic_tools:knife_enchanted_wood_green"] = {next = "mymagic_tools:knife_enchanted_wood_blue", color = "blue"},
+    ["mymagic_tools:knife_enchanted_wood_blue"] = {next = "mymagic_tools:knife_enchanted_wood_red", color = "red"},
+
+    -- Diamond Helmet
+    ["3d_armor:helmet_diamond"] = {next = "mymagic_tools:diamond_helmet_orange", color = "orange"},
+    ["mymagic_tools:diamond_helmet_orange"] = {next = "mymagic_tools:diamond_helmet_green", color = "green"},
+    ["mymagic_tools:diamond_helmet_green"] = {next = "mymagic_tools:diamond_helmet_blue", color = "blue"},
+    ["mymagic_tools:diamond_helmet_blue"] = {next = "mymagic_tools:diamond_helmet_red", color = "red"},
+
+    -- Diamond Chestplate
+    ["3d_armor:chestplate_diamond"] = {next = "mymagic_tools:diamond_chestplate_orange", color = "orange"},
+    ["mymagic_tools:diamond_chestplate_orange"] = {next = "mymagic_tools:diamond_chestplate_green", color = "green"},
+    ["mymagic_tools:diamond_chestplate_green"] = {next = "mymagic_tools:diamond_chestplate_blue", color = "blue"},
+    ["mymagic_tools:diamond_chestplate_blue"] = {next = "mymagic_tools:diamond_chestplate_red", color = "red"},
+
+    -- Diamond Leggings
+    ["3d_armor:leggings_diamond"] = {next = "mymagic_tools:diamond_leggings_orange", color = "orange"},
+    ["mymagic_tools:diamond_leggings_orange"] = {next = "mymagic_tools:diamond_leggings_green", color = "green"},
+    ["mymagic_tools:diamond_leggings_green"] = {next = "mymagic_tools:diamond_leggings_blue", color = "blue"},
+    ["mymagic_tools:diamond_leggings_blue"] = {next = "mymagic_tools:diamond_leggings_red", color = "red"},
+
+    -- Diamond Boots
+    ["3d_armor:boots_diamond"] = {next = "mymagic_tools:diamond_boots_orange", color = "orange"},
+    ["mymagic_tools:diamond_boots_orange"] = {next = "mymagic_tools:diamond_boots_green", color = "green"},
+    ["mymagic_tools:diamond_boots_green"] = {next = "mymagic_tools:diamond_boots_blue", color = "blue"},
+    ["mymagic_tools:diamond_boots_blue"] = {next = "mymagic_tools:diamond_boots_red", color = "red"}
+}
+
 
       local tool_name = tool:get_name()
       if enchantment_map[tool_name] and
